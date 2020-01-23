@@ -1,0 +1,21 @@
+int formingMagicSquare(int s_rows, int s_columns, int** s) {
+
+    int a[8][9]={{8, 1, 6, 3, 5, 7, 4, 9, 2},{6, 1, 8, 7, 5, 3, 2, 9, 4}, {4, 9, 2, 3, 5,    7, 8, 1, 6},{2, 9, 4, 7, 5, 3, 6, 1, 8},{8, 3, 4, 1, 5, 9, 6, 7, 2},{4, 3, 8, 9, 5,      1, 2, 7, 6},{6, 7, 2, 1, 5, 9, 8, 3, 4},{2, 7, 6, 9, 5, 1, 4, 3, 8}};
+
+    int cost,c=0,mincost=INT_MAX;
+    for(int k=0;k<8;k++)
+    {   c=0; cost=0;
+        for(int i=0;i<s_rows;i++)
+        {
+            for(int j=0;j<s_columns;j++)
+            {
+                cost+=abs(s[i][j]-a[k][c++]);
+            }
+        }
+        if(cost<mincost)
+        {
+            mincost=cost;
+        }
+    }
+    return mincost;
+}
